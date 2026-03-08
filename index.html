@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Para Você ❤️</title>
+
+<style>
+
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+    font-family:Arial;
+    overflow:hidden;
+}
+
+/* Envelope */
+
+.envelope{
+    width:250px;
+    height:160px;
+    background:#ff4d6d;
+    position:relative;
+    cursor:pointer;
+    border-radius:5px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+.envelope:before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:0;
+    height:0;
+    border-left:125px solid transparent;
+    border-right:125px solid transparent;
+    border-bottom:80px solid #ff758f;
+}
+
+.envelope-text{
+    position:absolute;
+    width:100%;
+    text-align:center;
+    top:65px;
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+}
+
+/* Carta */
+
+.carta{
+    display:none;
+    position:absolute;
+    width:420px;
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.3);
+    text-align:center;
+}
+
+h2{
+    color:#ff4d6d;
+}
+
+p{
+    color:#333;
+}
+
+/* Corações */
+
+.heart{
+    position:absolute;
+    color:red;
+    font-size:20px;
+    animation:subir 6s linear infinite;
+}
+
+@keyframes subir{
+    from{
+        transform:translateY(100vh);
+        opacity:1;
+    }
+    to{
+        transform:translateY(-10vh);
+        opacity:0;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="envelope" onclick="abrirCarta()">
+<div class="envelope-text">💌 Clique para abrir</div>
+</div>
+
+<div class="carta" id="carta">
+
+<h2>Feliz Dia das Mulheres 🌸</h2>
+
+<p><b>Meu amor,</b></p>
+
+<p>
+Feliz Dia das Mulheres! Hoje é um dia especial para lembrar o quanto as mulheres são fortes, incríveis e importantes. Mas para mim, esse dia também é uma oportunidade de dizer o quanto você é especial na minha vida.
+</p>
+
+<p>
+Você é uma pessoa maravilhosa, cheia de carinho, força e luz. Sua presença faz meus dias mais felizes e tudo fica melhor quando estou ao seu lado.
+</p>
+
+<p>
+Sou muito grato por ter você comigo e admiro muito quem você é. Você merece todo o amor, respeito e felicidade do mundo.
+</p>
+
+<p>
+❤️ Feliz Dia das Mulheres! ❤️
+</p>
+
+</div>
+
+<script>
+
+function abrirCarta(){
+document.querySelector(".envelope").style.display="none";
+document.getElementById("carta").style.display="block";
+}
+
+/* corações */
+
+setInterval(()=>{
+let heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="❤";
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(Math.random()*20+10)+"px";
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},6000);
+
+},500);
+
+</script>
+
+</body>
+</html>
